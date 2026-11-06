@@ -1,0 +1,61 @@
+<Window x:Class="TapOS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TapOS"
+        Width="620"
+        Height="430"
+        MinWidth="560"
+        MinHeight="390"
+        WindowStartupLocation="CenterScreen"
+        Closing="Window_Closing">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="TapOS" FontSize="26" FontWeight="SemiBold"/>
+        <TextBlock Grid.Row="1" Margin="0,6,0,20" Text="Background touchpad sound utility" Foreground="#666666"/>
+
+        <Border Grid.Row="2" Padding="12" BorderBrush="#DDDDDD" BorderThickness="1" CornerRadius="6">
+            <StackPanel>
+                <TextBlock Text="Status" FontWeight="SemiBold"/>
+                <TextBlock x:Name="StatusText" Margin="0,6,0,0" TextWrapping="Wrap"/>
+                <TextBlock x:Name="SoundStatusText" Margin="0,4,0,0" TextWrapping="Wrap"/>
+                <TextBlock x:Name="ApiStatusText" Margin="0,4,0,0" TextWrapping="Wrap" Foreground="#A33A00"/>
+                <TextBlock x:Name="OverlayStatusText" Margin="0,4,0,0" TextWrapping="Wrap" Foreground="#A33A00"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="3" Margin="0,18,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock VerticalAlignment="Center" Text="Sound folder:"/>
+            <TextBox x:Name="SoundFolderTextBox" Grid.Column="1" Margin="12,0,8,0"/>
+            <Button Grid.Column="2" Padding="12,5" Content="Browse..." Click="BrowseButton_Click"/>
+        </Grid>
+
+        <StackPanel Grid.Row="4" Margin="0,18,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="Maximum gesture duration (ms):"/>
+                <TextBox x:Name="DurationTextBox" Width="70" Margin="12,0,0,0"/>
+            </StackPanel>
+            <TextBlock Margin="0,10,0,0" Text="The app uses the documented global hotkey Win+Alt+M. The Raw Input touchpad provider and the optional screen-touch provider are separate input paths." TextWrapping="Wrap" Foreground="#666666"/>
+            <CheckBox x:Name="ScreenTouchOverlayCheckBox" Margin="0,12,0,0" Content="Enable optional fullscreen screen-touch overlay (touchscreen only)" />
+            <TextBlock Margin="0,4,0,0" Text="Warning: while enabled, the transparent overlay receives screen touch and mouse input and may block interaction with windows underneath. This does not detect touchpad contacts." TextWrapping="Wrap" Foreground="#A33A00"/>
+            <Button x:Name="ToggleButton" Margin="0,12,0,0" Padding="10,5" HorizontalAlignment="Left" Content="Enable TapOS now" Click="ToggleButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Padding="14,7" Margin="0,0,8,0" Content="Test sound" Click="TestSoundButton_Click"/>
+            <Button Padding="14,7" Margin="0,0,8,0" Content="Reload sounds" Click="ReloadButton_Click"/>
+            <Button Padding="14,7" Background="#1E6FBA" Foreground="White" Content="Save" Click="SaveButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

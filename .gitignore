@@ -1,0 +1,22 @@
+bin/
+obj/
+TestResults/
+
+# Visual Studio and local IDE state
+.vs/
+.idea/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Local build/publish artifacts
+publish/
+artifacts/
+*.nupkg
+*.snupkg
+
+# Local application state and diagnostics
+*.log
+settings.json
+*.local.json
